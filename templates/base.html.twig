@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Base!{% endblock %}</title>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <a href="{{ url("home") }}">Me</a> |
+            <a href="{{ url("report") }}">Redovisning</a> | 
+            <a href="{{ url("about") }}">Om</a>
+        </nav>
+    </div>
+
+    {% block content %}
+    Default content
+    {% endblock %}
+
+    <footer>
+        <p>Designed by Joakim</p>
+        <p>2021</p>
+    </footer>
+</body>
+</html>

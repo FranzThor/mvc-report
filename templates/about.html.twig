@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %} 
+
+{% block title %}Om{% endblock %} 
+
+{% block content %}
+<article>
+    <h1>Om</h1>
+    <div class="about">
+        <p>Den här sidan används för att presentera de redovisningstexter som
+            tillhör de olika kursmomenten i kursen
+            <a href="https://dbwebb.se/kurser/databas-v2">
+                <b>DV1608</b><a>.</p>
+        <p>Kursen behandlar MVC (Model-View-Controller) och objektorienterad PHP.</p>
+        <p>Design och layout kan komma att ändras under kursens gång.</p>
+        <a id="github" href="https://github.com/dbwebb-se/mvc">
+            <img
+                class="githublogo"
+                src=" {{ absolute_url("img/github.png") }}"
+                caption="course github"
+            />
+            <p>Kursens GitHub</p></a
+        >
+    </div>
+    <div class="img">
+        <img 
+            class="marialogo" 
+            src="{{ absolute_url("img/mvc.png") }}" 
+            caption="mvc" 
+        />
+    </div>
+</article>
+{% endblock %}

@@ -1,0 +1,114 @@
+/* html {
+    overflow-y:scroll;
+}
+
+body {
+    margin: 8px auto;
+    background: #fff;
+    width: 700px;
+}
+
+article h2 {
+    border-bottom: 1px solid #aaa;
+} */
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    margin: 15px auto;
+    max-width: 800px;
+}
+
+.header {
+    background: linear-gradient(to right, lightgray, white);
+    height: 100px;
+    position: relative;
+}
+
+#headerheading {
+    display: inline-block;
+    border-bottom: none;
+    text-align: left;
+}
+
+nav {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 0; 
+    padding: 5px;
+}
+
+nav a {
+    text-decoration: none;
+    color: red;
+    margin: 10px;
+    font-size: 16pt;
+}
+
+article {
+    min-height: 400px;
+}
+
+h1 {
+    padding: 5px;
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+#s1,
+#s2 {
+    display: inline-block;
+    vertical-align: text-top;
+    width: 49%;
+}
+
+footer {
+    margin-top: 20px;
+    border-top: 1px solid black;
+}
+
+footer p {
+    text-align: center;
+    color: red;
+}
+
+/* presentation texts */
+
+.presentation h2 {
+    background: linear-gradient(to right, lightgray, white);
+}
+
+/* about */
+
+.about {
+    width: 59%;
+    display: inline-block;
+}
+
+.img {
+    width: 40%;
+    display: inline-block;
+}
+
+/* images */
+
+.githublogo {
+    width: 30px;
+    float: left;
+}
+
+.marialogo {
+    width: 300px;
+    float: right;
+}
+
+/* github logo */
+
+#github p {
+    margin-left: 35px;
+    position: relative;
+    top: 5px;
+}
