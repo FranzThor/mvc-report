@@ -25,6 +25,7 @@ body {
     background: linear-gradient(to right, lightgray, white);
     height: 100px;
     position: relative;
+    margin-bottom: 20px;
 }
 
 #headerheading {

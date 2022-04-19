@@ -1,3 +1,6 @@
 FormLoginController.php
 FormSearchController.php
 FormSessionController.php
+DiceController.php
+DiceGraphicController.php
+DiceHandController.php

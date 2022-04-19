@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{% block title %}Base!{% endblock %}</title>
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="{{ asset("css/style.css") }}"/>
 </head>
 <body>
     <div class="header">
         <nav>
             <a href="{{ url("home") }}">Me</a> |
             <a href="{{ url("report") }}">Redovisning</a> | 
-            <a href="{{ url("about") }}">Om</a>
+            <a href="{{ url("about") }}">Om</a> |
+            <a href="{{ url("card-home") }}">Kmom02</a>
         </nav>
     </div>
 
