@@ -60,6 +60,13 @@ class Deck
         return $this->cards;
     }
 
+    public function dealCard(): object
+    {
+        $card = array_shift($this->cards);
+
+        return $card;
+    }
+
     public function deckToString(): string
     {
         $str = "";

@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deck{% endblock %}
+
+{% block content %}
+
+    <article>
+
+        <h1>Kmom02 - Draw</h1>
+
+        <p>{{ deckToString }}</p>
+
+        <p>Drawn card: {{ draw.toString() }}</p>
+
+    </article>
+
+{% endblock %}
