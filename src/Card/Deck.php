@@ -44,6 +44,22 @@ class Deck
         return $this->cards;
     }
 
+    public function shuffle(): array
+    {
+        $i = count($this->cards);
+        $j;
+        $k;
+
+        while ($i) {
+            $j = random_int(0, $i);
+            $k = $this->cards[--$i];
+            $this->cards[$i] = $this->cards[$j];
+            $this->cards[$j] = $k;
+        }
+
+        return $this->cards;
+    }
+
     public function deckToString(): string
     {
         $str = "";

@@ -25,9 +25,26 @@ class CardController extends AbstractController
         $deck = new \App\Card\Deck(1);
         $data = [
             'deckOfCards' => $deck->createDeck(),
-            'deckToString' => $deck->deckToString(),
+            'deckToString' => $deck->deckToString()
         ];
 
         return $this->render('card/deck.html.twig', $data);
+    }
+
+    /**
+     * @Route ("/card/shuffle", name="card-shuffle")
+     */
+
+    public function shuffle(): Response
+    {
+        $deck = new \App\Card\Deck(1);
+        $data = [
+            'deckOfCards' => $deck->createDeck(),
+            'shuffle' => $deck->shuffle(),
+            'deckToString' => $deck->deckToString()
+        ];
+
+
+        return $this->render('card/shuffle.html.twig', $data);
     }
 }
