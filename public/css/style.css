@@ -28,25 +28,28 @@ body {
     margin-bottom: 20px;
 }
 
-#headerheading {
-    display: inline-block;
-    border-bottom: none;
-    text-align: left;
-}
-
 nav {
     display: inline-block;
     position: absolute;
     right: 0;
     bottom: 0; 
-    padding: 5px;
+    width: 100%;
+    text-align: right;
 }
 
 nav a {
+    display: inline-block;
     text-decoration: none;
     color: red;
     margin: 10px;
     font-size: 16pt;
+    text-align: left;
+}
+
+nav a:nth-child(1) {
+    color: green;
+    float: left;
+    font-weight: 800;
 }
 
 article {

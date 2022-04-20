@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deck{% endblock %}
+
+{% block content %}
+
+    <article>
+
+        <h1>Kmom02 - Card</h1>
+
+        <p>{{ deckToString }}</p>
+
+        <!-- IGNORE - for testing ace values only -->
+        {# {% for cards in deckOfCards %}
+            {{ cards.getValue() }}
+        {% endfor %} #}
+
+    </article>
+
+{% endblock %}

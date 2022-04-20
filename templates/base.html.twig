@@ -9,15 +9,15 @@
 <body>
     <div class="header">
         <nav>
+            <a href="{{ url("card-home") }}">Card</a>
             <a href="{{ url("home") }}">Me</a> |
             <a href="{{ url("report") }}">Redovisning</a> | 
-            <a href="{{ url("about") }}">Om</a> |
-            <a href="{{ url("card-home") }}">Kmom02</a>
+            <a href="{{ url("about") }}">Om</a>
         </nav>
     </div>
 
     {% block content %}
-    Default content
+        Default content
     {% endblock %}
 
     <footer>
