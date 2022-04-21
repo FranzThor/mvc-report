@@ -46,7 +46,7 @@ class Deck
 
     public function shuffle(): array
     {
-        $i = count($this->cards);
+        $i = count($this->cards) - 1;
         $j;
         $k;
 
@@ -62,9 +62,9 @@ class Deck
 
     public function dealCard(): object
     {
-        $card = array_shift($this->cards);
-
-        return $card;
+        $drawnCard = array_shift($this->cards);
+        
+        return $drawnCard;
     }
 
     public function deckToString(): string

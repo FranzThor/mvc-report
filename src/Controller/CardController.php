@@ -25,7 +25,8 @@ class CardController extends AbstractController
         $deck = new \App\Card\Deck(1);
         $data = [
             'deckOfCards' => $deck->createDeck(),
-            'deckToString' => $deck->deckToString()
+            'deckToString' => $deck->deckToString(),
+            'link_to_draws' => $this->generateURL('card-draw', ['noOfDraws' => 1,])
         ];
 
         return $this->render('card/deck.html.twig', $data);
@@ -43,23 +44,27 @@ class CardController extends AbstractController
             'deckToString' => $deck->deckToString()
         ];
 
-
         return $this->render('card/shuffle.html.twig', $data);
     }
 
     /**
-     * @Route ("/card/draw", name="card-draw")
+     * @Route ("/card/draw/{noOfDraws}", name="card-draw")
      */
-    public function draw(): Response
+    public function draw(int $noOfDraws = 1): Response
     {
         $deck = new \App\Card\Deck(1);
+        $deck->createDeck();
+        $deck->shuffle();
+
+        $drawnCards = [];
+        for ($i = 0; $i < $noOfDraws; $i++) {
+            array_push($drawnCards, $deck->dealCard());
+        }
+
         $data = [
-            'deckOfCards' => $deck->createDeck(),
-            'shuffle' => $deck->shuffle(),
-            'draw' => $deck->dealCard(),
+            'draws' => $drawnCards,
             'deckToString' => $deck->deckToString()
         ];
-
 
         return $this->render('card/draw.html.twig', $data);
     }

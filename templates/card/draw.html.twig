@@ -10,7 +10,11 @@
 
         <p>{{ deckToString }}</p>
 
-        <p>Drawn card: {{ draw.toString() }}</p>
+        {# <p>Drawn card: {{ draw.toString() }}</p> #}
+
+        {% for cards in draws %}
+            {{ cards.toString() }}
+        {% endfor %}
 
     </article>
 
