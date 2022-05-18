@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CardController extends AbstractController
@@ -35,9 +37,13 @@ class CardController extends AbstractController
     /**
      * @Route ("/card/shuffle", name="card-shuffle")
      */
-    public function shuffle(): Response
+    public function shuffle(
+        SessionInterface $session
+    ): Response
     {
         $deck = new \App\Card\Deck(1);
+        $session->set("cards", $deck);
+        $session->set("cardsOnHand", []); 
         $data = [
             'deckOfCards' => $deck->createDeck(),
             'shuffle' => $deck->shuffle(),
@@ -50,19 +56,18 @@ class CardController extends AbstractController
     /**
      * @Route ("/card/draw/{noOfDraws}", name="card-draw")
      */
-    public function draw(int $noOfDraws = 1): Response
-    {
-        $deck = new \App\Card\Deck(1);
-        $deck->createDeck();
-        $deck->shuffle();
-
-        $drawnCards = [];
+    public function draw(SessionInterface $session, int $noOfDraws = 1): Response {
+        $deck = $session->get("cards");
+        $cardsOnHand = $session->get("cardsOnHand");
+        
         for ($i = 0; $i < $noOfDraws; $i++) {
-            array_push($drawnCards, $deck->dealCard());
+            array_push($cardsOnHand, $deck->dealCard());
         }
-
+        
+        $session->set("cardsOnHand", $cardsOnHand);
+        
         $data = [
-            'draws' => $drawnCards,
+            'draws' => $cardsOnHand,
             'deckToString' => $deck->deckToString()
         ];
 
