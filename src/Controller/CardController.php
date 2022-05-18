@@ -35,7 +35,7 @@ class CardController extends AbstractController
     }
 
     /**
-     * @Route ("/card/shuffle", name="card-shuffle")
+     * @Route ("/card/deck/shuffle", name="card-shuffle")
      */
     public function shuffle(
         SessionInterface $session
@@ -54,7 +54,7 @@ class CardController extends AbstractController
     }
 
     /**
-     * @Route ("/card/draw/{noOfDraws}", name="card-draw")
+     * @Route ("/card/deck/draw/{noOfDraws}", name="card-draw")
      */
     public function draw(SessionInterface $session, int $noOfDraws = 1): Response {
         $deck = $session->get("cards");
@@ -65,12 +65,35 @@ class CardController extends AbstractController
         }
         
         $session->set("cardsOnHand", $cardsOnHand);
-        
+
         $data = [
             'draws' => $cardsOnHand,
             'deckToString' => $deck->deckToString()
         ];
 
         return $this->render('card/draw.html.twig', $data);
+    }
+
+    /**
+     * @Route ("/card/deck/deal/{noOfPlayers}/{noOfCards}", name="deal-cards")
+     */
+    public function deal(SessionInterface $session, $noOfPlayers = 0, $noOfCards = 0): Response {
+        $deck = $session->get("cards");
+        $players = [];
+
+        for ($i = 1; $i <= $noOfPlayers; $i++) {
+            array_push($players, new \App\Card\Player("Player ${i}"));
+
+            for ($j = 0; $j < $noOfCards; $j++) {
+                $players[$i - 1]->hit($deck->dealCard());
+            }
+        }
+
+        $data = [
+            'players' => $players,
+            'deckToString' => $deck->deckToString()
+        ];
+
+        return $this->render('card/deal.html.twig', $data);
     }
 }

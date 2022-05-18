@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deal{% endblock %}
+
+{% block content %}
+
+    <p>Remaining cards</p>
+    {{ deckToString }}
+    {% for player in players %}
+        <li>{{ player.getName() }}</li>
+        {{ player.getHand() }}
+    {% endfor %}
+{% endblock %}
