@@ -96,4 +96,18 @@ class CardController extends AbstractController
 
         return $this->render('card/deal.html.twig', $data);
     }
+
+    /**
+     * @Route ("/card/deck2", name="joker")
+     */
+    public function deck2(): Response {
+        $deck = new \App\Card\DeckWithJokers(1);
+
+        $data = [
+            'deckOfCards' => $deck->createDeck(),
+            'cards' => $deck->deckToString(),
+        ];
+
+        return $this->render('card/joker.html.twig', $data);
+    }
 }

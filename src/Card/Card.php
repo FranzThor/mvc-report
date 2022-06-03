@@ -7,7 +7,7 @@ class Card
     private $suit;
     private $rank;
 
-    public function __construct($suit, $rank, $aceValue = null)
+    public function __construct($suit = null, $rank = null, $aceValue = null)
     {
         $this->suit = $suit;
         $this->rank = $rank;

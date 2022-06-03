@@ -1,0 +1,20 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Deck with jokers{% endblock %}
+
+{% block content %}
+
+    <article>
+
+        <h1>Kmom02 - Deck with jokers</h1>
+
+        <p>{{ cards }}</p>
+
+        <!-- IGNORE - for testing ace values only -->
+        {# {% for card in cards %}
+            {{ card.getValue() }}
+        {% endfor %} #}
+
+    </article>
+
+{% endblock %}
